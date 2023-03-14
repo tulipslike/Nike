@@ -1,0 +1,302 @@
+@charset "UTF-8";
+@import url(reset.css);
+@import url(font.css);
+@import url(all.min.css);/*폰트어썸-아이콘*/
+
+/*공통 스타일*/
+#all-wrap {
+  position: fixed;
+/*  브라우저 화면 기준*/
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  
+  background: #000;
+  overflow: hidden;
+  
+}
+
+/*동영상 배경*/
+#vid {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  
+  width: 100%;
+  height: 100%;
+}
+#vid video {
+  display: block;
+  min-width: 100%;
+  min-height: 100%;
+  opacity: 70%;
+}
+
+/*사이트 로고*/
+#logo {
+  position: absolute;
+  z-index: 3;
+  left: 20px;
+  top: 20px;
+}
+#logo img {
+  width: 300px;
+  
+}
+
+/*header*/
+
+#header {
+  position: relative;
+  width: 700px;
+  height: 100%;
+  
+  transform: skewX(-40deg);
+  transform-origin: left top;
+/*  -origin(기준)
+  left center right
+   0    50%   100%  <== 효과를 주기 위해서는 숫자로
+  top center bottom
+  */
+  
+/*  transform-style: prevserve-3d;3D로 변경*/
+  
+/*  background-position: lefe ( center );*/
+/*  background-position: top ;
+     "기본값이 auto"?
+    width,hdight
+  */
+  background: linear-gradient(90deg, #e6fc55, rgba(185, 250, 10,0.5))
+}
+
+#header b {
+  display: inline-block;
+  transform: skewX(40deg);
+}
+
+#header .gnb {
+  position: absolute;
+  right: 0;
+  top: 150px;
+  width: 200px;
+}
+/*width: auto ==블록 (층, 한 줄 혼자다 쓰기)
+height: auto == 자식크기 (높이=글자 크기, 이미지 크키)*/
+
+#header .gnb > li {
+  text-align: right;
+  line-height: 50px;
+  
+  
+}
+#header .gnb > li > a {
+  display: block;
+  padding-right: 40px;
+}
+
+#header .gnb > li:hover > a,
+#header .gnb > li.open > a {
+  background: #111;
+  color: #eee;
+}
+
+#header .fa-sync-alt {
+  margin-right: 10px;
+}
+
+/*SNS*/
+#sns {
+  position: absolute;
+  right: 50px;
+  top: 50px;
+  z-index: 1;
+}
+#sns a {
+  font-size: 30px;
+  padding: 3px;
+}
+
+#sns a:hover {
+  color: #777
+}
+/*main-title*/
+
+#main-title {
+  position: absolute;
+  right: 50px;
+  top: 250px;
+}
+
+#main-title p {
+  color: #eee;
+  font: 50px/1 "PlayB";
+  text-shadow: 2px 2px 5px #111,
+    20px 20px 0px rgba(0,0,0,0.5) 
+}
+#main-title em {
+  font: 150px/1 "Monoton";
+  color: #b9fb05
+}
+#main-title h2 {
+  color: #999;
+  font-size: 30px;
+  text-shadow: 2px 2px #111
+}
+#main-title strong {
+  color: #b9fb05;
+  font-size: 35px;
+  margin-left: 10px;
+  text-shadow: 2px 2px #111, 0 0 5px, 0 0 15px rgba(255,255,255,0.3)
+}
+
+/*사이드 콘텐츠*/
+#main-side {
+  position: absolute;
+  
+  bottom: 0;
+  width: 600px;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  
+  transform: skewX(-40deg);
+  transform-origin: right bottom;/*기준변경 right bottom == 100% 100%*/ 
+}
+#main-side .main-side-inner {
+  position: absolute;
+  bottom: 0;
+  width: 400px;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+}
+#main-side,
+#main-side .main-side-inner {
+  transition: all 1s
+}
+#main-side {
+  right: -400px;
+}
+#main-side .main-side-inner{
+  left: 150px;
+}
+
+#main-side:hover {
+  right: 0;
+}
+#main-side:hover .main-side-inner {
+  left: 50px;
+}
+
+#main-side .list {
+ position: absolute;
+ bottom: 50px;
+  left: 50px;
+  width: 300px;
+ 
+}
+#main-side .list li {
+  margin-top: 5px;
+}
+#main-side .list h3 {
+  color: #ccc;
+  transform: skewX(40deg);
+  padding-left: 10px;
+  font-size: medium
+}
+#main-side .list img {
+  display: block;
+  width: 300px;
+  
+}
+
+#main-side .list a {
+  display: block;
+  opacity: 0.5
+}
+#main-side .list a:hover {
+  opacity: 9.5
+}
+
+/*서랍장 효과?*/
+#main-side .list li {
+/*  margin-left: 200px;*/
+/*
+  position: relative;
+  left: 200px;
+*/
+  transform: translate(200px);
+  transition: all 0.6s
+}
+#main-side:hover .list li {
+/*  margin-left: 0;*/
+/*  left: 0;*/
+  transform: translateX(0)
+}
+#main-side .list li:nth-child(1) {
+  transition-delay: 0.4s
+}
+#main-side .list li:nth-child(2) {
+  transition-delay: 0.2s
+}
+#main-side .list li:nth-child(3) {
+  transition-delay: 0s
+}
+
+/*블록요소를 움직이려면
+(이사) margin | position
+(효과) transform(translate) 
+
+"가시성? 보임-숨김"
+(진짜X) dispaly: none
+(숨김O) opacity | visiblity
+*/
+
+/*서브 메뉴*/
+#header .gnb > li {
+  position: relative;/*기준선언*/
+}
+#header .gnb > li > a:hover + .snb{
+  left: ;180px;
+  opacity: 1;
+}
+
+#header .snb {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 150px;
+  text-align: center;
+  opacity: 0;
+  transition: all 0.3s
+}
+#header .snb li {
+  line-height: 40px;
+  margin-bottom: 5px;
+  border-bottom: 1px solid #b9fb05;
+  box-shadow: 15px 15px 10px rgba(0,0,0,0.2);
+}
+#header .snb a {
+  display: block;
+  background: #333;
+  color: #eee
+}
+#header .snb a:hover {
+  background: #b9fb05;
+  color: #111;
+}
+#header .open .snb {
+  opacity: 1;
+  left: 180px;
+  top: -10px;
+}
+
+
+
+
+
+
+
+
+
+
